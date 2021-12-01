@@ -1,10 +1,16 @@
-const express = require('express')
-const Products = require('./products.js')
-const products = new Products()
-const app = express()
-const port = 3000
+const express = require('express');
+const cors = require('cors');
+var morgan = require('morgan')
+const app = express();
 
-app.listen(port, () => console.log(`listening on port ${port}!`))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+app.use(morgan())
+app.set('view engine', 'html');
+ 
+app.listen(8080);
 
-app.get('/productos', (req, res) => res.send(products.getAll()))
-app.get('/productosRandom', (req, res) => res.send(products.getRandom()))
+
+//Routes
+app.use('/api/products', require('./routes/products')); 
