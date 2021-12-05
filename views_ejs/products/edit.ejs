@@ -1,0 +1,50 @@
+<%- include('../include/header'); -%>
+<!-- <%=  JSON.stringify(products) %> -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-3 mb-3">
+      <h1><%= title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <form action="/products/edit/<%= products.id %>" method="POST">
+      <input type="hidden" name="id" value="<%= products.id %>" />
+      <div class="form-group">
+        <label for="name">Titulo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          value="<%= products.title %>"
+          placeholder="Escribir titulo"
+        />
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          type="text"
+          class="form-control"
+          id="price"
+          value="<%= products.price %>"
+          name="price"
+          placeholder="Escribir precio"
+        />
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input
+          type="text"
+          class="form-control"
+          id="imagen"
+          value="<%= products.imagen %>"
+          name="imagen"
+          placeholder="Escribir precio"
+        />
+      </div>
+      <hr />
+      <button type="submit" class="mt-20 btn btn-primary">Guardar</button>
+    </form>
+  </div>
+</div>
+<%- include('../include/footer'); -%>

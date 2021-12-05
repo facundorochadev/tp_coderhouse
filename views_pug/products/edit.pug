@@ -1,0 +1,11 @@
+include ../include/header.pug
+div(class="container mt-5")
+  h1=title
+  form(action='/products/add' method='POST')
+    | title: 
+    input(type='text' class="form-control" name='title' value=products.title)
+    |          price: 
+    input(type='text' class="form-control" name='price' value=products.price)
+    |          imagen: 
+    input(type='text' class="form-control" name='imagen' value=products.imagen)
+    input(type='submit' class="btn btn-success" value='Submit')

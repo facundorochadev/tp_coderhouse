@@ -1,0 +1,48 @@
+<%- include('../include/header'); -%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 mt-3 mb-3">
+      <h1><%= title %></h1>
+    </div>
+    <div class="col-md-3 mt-3 mb-3">
+      <a href="/products/add" class="btn btn-block btn-success float-right"
+        >AGREGAR</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <hr />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% products.forEach(function(product) { %>
+          <tr>
+            <td><%= product.title %></td>
+            <td><%= product.price %></td>
+            <td><%= product.imagen %></td>
+            <td>
+              <a href="/products/edit/<%= product.id %>" class="btn btn-primary"
+                >Editar</a
+              >
+              <a
+                href="/products/delete/<%= product.id %>"
+                class="btn btn-danger"
+                >Eliminar</a
+              >
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%- include('../include/footer'); -%>

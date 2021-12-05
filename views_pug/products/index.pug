@@ -1,0 +1,19 @@
+include ../include/header.pug
+div(class="container mt-5")
+  h1=title
+  table(class="table table-striped")
+    thead()
+      tr()
+        th()='Name'
+        th()='Price'
+        th()='Imagen'
+        th()='Actions'
+    tbody()
+      each product in products
+        tr()
+          td()=product.title
+          td()="$"+product.price
+          td()=product.imagen
+          td()
+            a(href=`/products/edit/${product.id}`,class="btn btn-warning mr-10")='Edit' 
+            a(href=`/products/delete/${product.id}`,class="btn btn-danger")='Delete' 
