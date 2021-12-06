@@ -13,13 +13,11 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan());
 
-app.set('port', (process.env.PORT || 4000));
-
-//Start Server
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+const server_port = process.env.YOUR_PORT || process.env.PORT || 80;
+const server_host = process.env.YOUR_HOST || '0.0.0.0';
+server.listen(server_port, server_host, function() {
+    console.log('Listening on port %d', server_port);
 });
-
 //ejs
 // app.set("view engine", "ejs");
 // app.set("views", "./views_ejs");
