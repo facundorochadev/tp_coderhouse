@@ -5,7 +5,7 @@ var morgan = require("morgan");
 const app = express();
 
 // app.use(express.urlencoded({ extended: true }));
-const PORT = process.env.PORT || 80;
+ 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -13,7 +13,12 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan());
 
-app.listen(PORT);
+app.set('port', (process.env.PORT || 4000));
+
+//Start Server
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
 
 //ejs
 // app.set("view engine", "ejs");
